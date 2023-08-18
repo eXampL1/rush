@@ -2,364 +2,120 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Real Estate Solarenergy Hydrogentechnology Coin" />
-    <meta name="author" content="Nicolas Wroblewski" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" />
-
-    <!-- ScrollReveal Js -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="./js/scroll-reveal.js" defer></script>
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon" />
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="./css/main.css" />
-
-    <style>
-        .wallet-banner {
-            background-color: black;
-            color: white;
-            padding: 10px 0;
-        }
-    
-        .wallet-banner__text {
-            margin: 0;
-            font-size: 18px;
-        }
-
-        .price-banner {
-            background-color: black;
-            color: white;
-            padding: 10px 0;
-        }
-    
-        .price-banner__text {
-            margin: 0;
-            font-size: 18px;
-        }
-    </style>
-    
-    <title>RSHC first centralized platform</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
 </head>
 
 <body>
-    <div class="wallet-banner">
-    <marquee behavior="scroll" direction="left" scrollamount="5"> <!-- Adjust scrollamount value as needed -->
-        <p class="wallet-banner__text">Wallet login function is temporarily unavailable. You can still access your wallets using the provided links. We apologize for any inconvenience.</p>
-    </marquee>
-</div>
-<div class="price-banner">
-    <marquee behavior="scroll" direction="left" scrollamount="5"> <!-- Adjust scrollamount value as needed -->
-        <p class="price-banner__text"> Real Estate Solarenergy Hydrogentechnology Coin Price 2.02 EUR</p>
-    </marquee>
-</div>
-    <div class="main-container">
-        <!-- Main header -->
-        <header class="main-header">
-            <div class="header-container">
-                <!-- Header navbar -->
-                <nav class="main-header-navbar">
-                    <img src="./assets/logo.png" alt="" class="main-header-navbar__logo" />
+    <header>Blockchain</header>
+    <div class="col-1400">
+        <section class="width-25">
+            <h2>Blöcke</h2>
+            <div class="card">Hier kommen Block Infos rein</div>
+        </section>
+        <section class="col">
+            <div class="col-850">
+                <section>
+                    <h2>Transaktionen</h2>
+                    <div class="mb-16">
+                        <select name="from" id="from" class="mr-16">
+                            <option value="" disabled>Von</option>
+                            <option value="Manuel">Manuel</option>
+                            <option value="Junus">Junus</option>
+                            <option value="Jessica">Jessica</option>
+                        </select>
 
-                    <ul class="main-header-navbar__nav">
-                        <li class="main-header-navbar__nav__item">
-                            <a href="#products" class="main-header-navbar__nav__link">RSHC</a>
-                        </li>
-                        <li class="main-header-navbar__nav__item">
-                            <a href="#features" class="main-header-navbar__nav__link">Buy</a>
-                        </li>
-                        <li class="main-header-navbar__nav__item">
-                            <a href="#about" class="main-header-navbar__nav__link">Marketplace</a>
-                        </li>
-                        <li class="main-header-navbar__nav__item">
-                            <a href="./contact/contact-us.html" class="main-header-navbar__nav__link">Contact</a>
-                        </li>
-                    </ul>
-
-                    <div class="main-header-navbar__login">
-                        <a href="wallet-login.html" class="main-header-navbar__login__login-btn">Wallet</a>
-                        <a href="wallet-create.html" class="main-header-navbar__login__register-btn">Create new Wallet</a>
+                        <select name="to" id="to">
+                            <option value="" disabled>An</option>
+                            <option value="Manuel">Manuel</option>
+                            <option value="Junus">Junus</option>
+                            <option value="Jessica">Jessica</option>
+                        </select>
                     </div>
-                </nav>
-
-                <!-- Header content -->
-                <div class="main-header-content-container">
-                    <div class="main-header-content-principal">
-
-                        <h1 class="main-header-content-principal__title">
-                            RSHC
-
-                        </h1>
-                        <h4 class="main-header-content-principal__title">
-                            R<span>eal Estate</span> S<span>olarenergy</span> H<span>ydrogentechnology</span> C<span>oin</span> 
-                            
-                        </h4>
-                    
-                        <h4 class="main-header-content-principal__title">
-                            Fastest & <span>secure</span> centralized cryptoplatform to invest in !
-                        
-                        </h4>
-                        <p class="main-header-content-principal__description">
-                            Buy and Sell our Cryptocurrency within our marketplace or buy directly from us
-                            and get secured with a credit contract!
-                        </p>
-                        <a href="./contact/contact-us.html" class="main-header-content-principal__btn">Get started <i
-                                class="fas fa-angle-right"></i></a>
+                    <div>
+                        <input type="number" min="1" placeholder="Betrag" id="amount" class="mr-16">
+                        <button onclick="sendMoney()">Abschicken</button>
                     </div>
-                    <img src="./assets/header-assets/header-Illustration.svg" alt="" class="
-                main-header-content-principal__illustration" />
-                </div>
+                </section>
+                <section>
+                    <h2>Nodes</h2>
+                    <div class="row mb-16">
+                        <div class="play-btn" id="n0" onclick="startNode0()"></div>
+                        Node 0 - Junus
+                    </div>
+                    <div class="row">
+                        <div class="play-btn" id="n1" onclick="startNode1()"></div>
+                        Node 1 - Manuel
+                    </div>
+                </section>
             </div>
-        </header>
+            <div class="col-850 fill-rest">
+                <section id="transactionContainer">
 
-        <!-- Main content -->
+                </section>
+                <section>
+                    <h2>Daten</h2>
 
-        <main class="main-content">
-            <!-- Why us section -->
-            <section class="why-us-wrapper">
-                <!-- Stats -->
-                <div class="stats-section">
-                    <div class="stats-section__reference">
-                        <i class="fas fa-chart-line"></i>
-                        <h3 class="stats-section__reference__title">-</h3>
-                        <p class="stats-section__reference__description">
-                            Digital Currency Exchanged
-                        </p>
+                    <canvas id="myChart"></canvas>
+                </section>
+                <section>
+                    <h2>Logs</h2>
+
+                    <div id="logs">
+
                     </div>
-                    <div class="stats-section__reference">
-                        <i class="fas fa-user"></i>
-                        <h3 class="stats-section__reference__title">-</h3>
-                        <p class="stats-section__reference__description">
-                            Trusted Wallets Investor
-                        </p>
-                    </div>
-                    <div class="stats-section__reference">
-                        <i class="fas fa-globe"></i>
-                        <h3 class="stats-section__reference__title">-</h3>
-                        <p class="stats-section__reference__description">
-                            Countries Supported
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Why us -->
-                <div class="why-us-section" id="about">
-                    <div class="why-us-section__content">
-                        <h2 class="why-us-section__content__title">
-                            Why you should choose <span>RSHC</span>
-                        </h2>
-                        <p class="why-us-section__content__description">
-                            We are the first centralized and independent cryptosystem, which allows us to give a security 
-                            to our customers. No financial brokers, no exchange.
-                        </p>
-                        <a href="#" class="why-us-section__content__btn">Learn More</a>
-                    </div>
-                    <img src="./assets/why-us-section-assets/why-us-Illustration.svg" alt="" class="
-                why-us-section__illustration          " />
-                </div>
-
-                <!-- Benefits -->
-                <div class="benefits-section">
-                    <h2 class="benefits-section__title">
-                        Check how much you can <span>earn</span>
-                    </h2>
-                    <p class="benefits-section__description">
-                        Let's see how the coin is performing! And how you can be a part of it. Join the RSHC
-                        Foundation now and profit directly!
-                    </p>
-
-                    <div class="card-info">
-                        <h4 class="card-info__title">ESTIMATED 24 HOUR REVENUE:</h4>
-                        <p class="card-info__description">---<span>(---)</span></p>
-                        <span class="card-info__advice">Revenue will changed based on investments</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Cryptocurrencies section -->
-            <section class="cryptocurrencies-section" id="products">
-                <h2 class="cryptocurrencies-section__title">
-                    Trade securely and market our coin RSHC!
-                </h2>
-                <div class="cryptocurrencies-info-cards">
-            
-                    <div class="info-card">
-                        <i class="fab fa-ethereum"></i>
-                        <h3 class="info-card__title">Real Estate Solarenergy Hydrogentechnology Coin <span>RSHC</span></h3>
-                        <p class="info-card__description">
-                            Blockchain technology to create and run centralized digital
-                            applications.
-                        </p>
-                        <a href="#" class="info-card__btn">Start investing <i class="fas fa-angle-right"></i></a>
-                    </div>
-                   
-                </div>
-            </section>
-
-            <!-- Features section -->
-            <section class="features-section" id="features">
-                <h2 class="features-section__title">
-                    Market sentiments, portfolio, and run the infrastructure of your
-                    choice
-                </h2>
-
-                <article class="invest-smart-article">
-                    <div class="invest-smart-article__content">
-                        <h3 class="invest-smart-article__content__title">Invest Smart</h3>
-                        <p class="invest-smart-article__content__description">
-                            Get full statistic information about the behaviour of buyers and
-                            sellers will help you to make the decision.
-                        </p>
-                        <a href="#" class="invest-smart-article__content__btn">Learn More</a>
-                    </div>
-
-                    <img src="./assets/features-section-assets/features-section-invest.png" alt="Crypto stats" class="invest-smart-article__graphic" />
-                </article>
-
-                <article class="detailed-stats-article">
-                    <div class="detailed-stats-article__content">
-                        <h3 class="detailed-stats-article__content__title">
-                            Detailed Statistics
-                        </h3>
-                        <p class="detailed-stats-article__content__description">
-                            View all mining related information in realtime, at any point at
-                            any location and decide which polls you want to mine in.
-                        </p>
-                        <a href="#" class="detailed-stats-article__content__btn">Learn More</a>
-                    </div>
-
-                    <img src="./assets/features-section-assets/features-section-statistic.png" alt="Detailed statistics"  class="detailed-stats-article__graphic" />
-                </article>
-
-                <article class="grow-profit-article">
-                    <div class="grow-profit-article__content">
-                        <h3 class="grow-profit-article__content__title">
-                            Grow your profit and track your investments
-                        </h3>
-                        <p class="grow-profit-article__content__description">
-                            Use our analytics tool, to track your profits constantly.
-                        </p>
-                        <a href="#" class="grow-profit-article__content__btn">Learn More</a>
-                    </div>
-
-                    <img src="./assets/features-section-assets/features-jaks-man.png" alt="Profit graphic" class="grow-profit-article__graphic" />
-                </article>
-            </section>
-        </main>
-
-        <!-- Call To Action -->
-        <aside class="cta-section" id="contact">
-            <div class="cta-section__content">
-                <h3 class="cta-section__content__title">Start mining now</h3>
-                <p class="cta-section__content__description">
-                    Join now with RSHC to get the latest news and start investing now
-                </p>
+                </section>
             </div>
-            <div class="cta-section__subscribe">
-                <input type="email" class="cta-section__subscribe__input" placeholder="Enter your email" />
-                <a href="#" class="cta-section__subscribe__btn">Subscribe</a>
-            </div>
-        </aside>
-
-        <!-- Main footer -->
-        <footer class="main-footer">
-            <div class="footer-container">
-                <img src="./assets/logo.png" alt="RSHC" class="main-footer__logo" />
-
-                <!-- Footer navs -->
-                <nav class="main-footer-navbar">
-                    <!-- Quick Link nav -->
-                    <ul class="main-footer-navbar__nav">
-                        <li class="main-footer-navbar__nav__item">
-                            <h3 class="main-footer-navbar__nav__title">Quick Link</h3>
-                        </li>
-                        <li class="main-footer-navbar__nav__item">
-                            <a href="#" class="main-footer-navbar__nav__link">Home</a>
-                        </li>
-                        <li class="main-footer-navbar__nav__item">
-                            <a href="#products" class="main-footer-navbar__nav__link">RSHC</a>
-                        </li>
-                        <li class="main-footer-navbar__nav__item">
-                            <a href="#about" class="main-footer-navbar__nav__link">Buy</a>
-                        </li>
-                        <li class="main-footer-navbar__nav__item">
-                            <a href="#features" class="main-footer-navbar__nav__link">Marketplace</a>
-                        </li>
-                        <li class="main-footer-navbar__nav__item">
-                            <a href="#contact" class="main-footer-navbar__nav__link">Contact</a>
-                        </li>
-                        <li class="main-footer-navbar__nav__item">
-                            <a href="index-de.html" class="main-footer-navbar__nav__link">German</a>
-                        </li>
-                        <li class="main-footer-navbar__nav__item">
-                            <a href="index-es.html" class="main-footer-navbar__nav__link">Español</a>
-                        </li>
-                    </ul>
-                    <!-- Resources link -->
-                    <ul class="main-footer-navbar__nav">
-                        <li class="main-footer-navbar__nav__item">
-                            <h3 class="main-footer-navbar__nav__title">Resources</h3>
-                        </li>
-                        <li class="main-footer-navbar__nav__item">
-                            <a href="brochure-english.pdf" class="main-footer-navbar__nav__link">Download brochure</a>
-                        </li>
-                        <li class="main-footer-navbar__nav__item">
-                            <a href="rshc-whitepaper.pdf" class="main-footer-navbar__nav__link">Download Whitepaper</a>
-                        </li>
-                        <li class="main-footer-navbar__nav__item">
-                            <a href="./RSHChain-main/index.html" class="main-footer-navbar__nav__link">Blockchain</a>
-                        </li>
-                    
-                    </ul>
-                </nav>
-
-                <!-- Payment systems -->
-                <div class="payment-systems">
-                    <h3 class="payment-systems__title">
-                        We accept following payment systems
-                    </h3>
-                    <div class="payment-systems-icons">
-                        <i class="fab fa-cc-visa"></i>
-                        <i class="fab fa-cc-mastercard"></i>
-                        <i class="fab fa-bitcoin"></i>
-                        <i class="fab fa-paypal"></i>
-                    </div>
-                </div>
-
-                <!-- Copy and social links -->
-                <div class="copy-and-social">
-                    <h3 class="copy-and-social__copy">
-                        ©2023 RSHC All rights reserved
-                    </h3>
-                </div>
-            </div>
-        </footer>
-
-        <!-- Attribution footer -->
-
+        </section>
     </div>
 
+    <script src="broadcaster.js"></script>
+    <script src="sha256.js"></script>
+    <script src="block.class.js"></script>
+    <script src="blockchain.class.js"></script>
+    <script src="mining-node.class.js"></script>
+    <script src="script.js"></script>
     <script>
-        function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-        }
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: CHART_DATA.labels,
+                datasets: [{
+                    label: '# of Votes',
+                    data: CHART_DATA.amounts,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     </script>
-
-    <div class="language-selector">
-        <button onclick="changeLanguage('en')">English</button>
-        <button onclick="changeLanguage('de')">Deutsch</button>
-        <button onclick="changeLanguage('es')">Español</button>
-    </div>
 </body>
 
 </html>
