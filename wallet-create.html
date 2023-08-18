@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MetaMask-like Interface</title>
+  <style>
+    /* CSS-Styling für das MetaMask-Interface */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333333;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    .welcome-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 50px;
+      margin: 0 auto;
+      background-color: #8e44ad;
+      color: #ffffff;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background-color: #7d3c98;
+    }
+  </style>
+  <script>
+    function generateWallet() {
+      // Generieren Sie hier Ihre Wallet-Adresse und andere benötigte Daten
+
+      // Beispielcode zum Weiterleiten zur nächsten Seite
+      window.location.href = "wallet-generate.html";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="./assets/logo.png" alt="RSHC Logo">
+    <h1>Create your wallet!</h1>
+    <button class="button" onclick="generateWallet()">Create Wallet</button>
+  </div>
+</body>
+</html>

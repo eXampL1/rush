@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wallet Electra</title>
+  <style>
+    /* Stildefinitionen hier einfügen */
+    /* ... */
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #6c63ff;
+    }
+
+    #balanceDisplay {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    #totalValue {
+      text-align: center;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    #balanceButtons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #6c63ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .circle-button {
+      background-color: #6c63ff;
+      color: white;
+      border: none;
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 0 auto;
+    }
+
+    #sendForm {
+      display: none;
+    }
+
+    #cancelButton {
+      background-color: #ff4d4d;
+    }
+
+    .error {
+      color: #ff4d4d;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Wallet Electra</h1>
+    <div id="balanceDisplay">
+      <p>Balance: <span id="balance">100,000</span> RSHC</p>
+      <p>Preis pro Coin: 2.02 EUR</p>
+    </div>
+    <div id="balanceButtons">
+      <button id="balanceButton1">100,000 RSHC</button>
+      <button id="showAddressButton">Zeige Wallet-Adresse</button>
+    </div>
+    <div class="circle-button" id="sendButton" onclick="openSendForm()">Send</div>
+
+    <div id="totalValue"></div>
+
+    <p id="errorMessage" class="error" style="display: none;"></p>
+  </div>
+
+  <div class="container">
+    <form id="sendForm">
+      <label for="recipientAddress">Receipient Wallet-Address:</label>
+      <input type="text" id="recipientAddress" required>
+
+      <label for="coinAmount">Coin Menge:</label>
+      <input type="number" id="coinAmount" required step="0.0001">
+
+      <p>Preis pro Coin: 2.02 EUR</p>
+
+      <button type="submit">Transaktion senden</button>
+      <button type="button" id="cancelButton" onclick="closeSendForm()">Abbrechen</button>
+    </form>
+  </div>
+
+  <script>
+    var pricePerCoin = 2.02; // Preis pro Coin in Euro
+    var balance = 100000; // Aktuelle Coin-Balance
+
+    // Funktion, um den Gesamtwert aller Coins zu berechnen und anzuzeigen
+    function updateTotalValue() {
+      var totalValue = pricePerCoin * balance;
+      document.getElementById('totalValue').textContent = 'Gesamtwert aller Coins: ' + totalValue.toFixed(2) + ' EUR';
+    }
+
+    // Funktion, um die aktuelle Coin-Balance anzuzeigen
+    function updateBalance() {
+      document.getElementById('balance').textContent = balance.toLocaleString();
+    }
+
+    // Funktion zum Öffnen des Senden-Formulars
+    function openSendForm() {
+      document.getElementById('balanceButtons').style.display = 'none';
+      document.getElementById('sendButton').style.display = 'none';
+      document.getElementById('sendForm').style.display = 'block';
+    }
+
+    // Funktion zum Schließen des Senden-Formulars
+    function closeSendForm() {
+      document.getElementById('balanceButtons').style.display = 'block';
+      document.getElementById('sendButton').style.display = 'block';
+      document.getElementById('sendForm').style.display = 'none';
+    }
+
+    // Funktion zum Senden der Transaktion
+    function sendTransaction() {
+      var recipientAddress = document.getElementById('recipientAddress').value;
+      var coinAmount = parseFloat(document.getElementById('coinAmount').value);
+
+      // Validierung der Eingaben
+      if (isNaN(coinAmount) || coinAmount <= 0) {
+        document.getElementById('errorMessage').textContent = 'Ungültige Coin-Menge.';
+        document.getElementById('errorMessage').style.display = 'block';
+        return;
+      }
+
+      // Transaktionslogik
+      // Hier können Sie den Code hinzufügen, um die Transaktion durchzuführen
+
+      // Beispielcode für eine erfolgreiche Transaktion
+      alert('Transaktion erfolgreich gesendet.');
+      balance -= coinAmount;
+      updateBalance();
+      updateTotalValue();
+      closeSendForm();
+    }
+
+    // Event-Listener für Buttons
+    document.getElementById('balanceButton1').addEventListener('click', function() {
+      alert('Balance: ' + balance.toLocaleString() + ' RSHC');
+    });
+
+    document.getElementById('showAddressButton').addEventListener('click', function() {
+      alert('Wallet-Adresse: 0xEDD71aDcDeF2f3F004BA50eB32B145FC');
+    });
+
+    document.getElementById('sendForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      sendTransaction();
+    });
+
+    // Initialisierung beim Laden der Seite
+    updateTotalValue();
+    updateBalance();
+  </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MetaMask-like Interface - Generate Wallet</title>
+  <style>
+    /* CSS-Styling für das MetaMask-Interface */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .wallet {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .wallet-address {
+      font-size: 16px;
+      color: #333333;
+      margin-bottom: 5px;
+    }
+
+    .secret-phrase {
+      font-size: 14px;
+      color: #666666;
+    }
+
+    .balance {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333333;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 50px;
+      margin: 0 auto;
+      margin-top: 20px;
+      background-color: #8e44ad;
+      color: #ffffff;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background-color: #7d3c98;
+    }
+  </style>
+  <script>
+    var wallets = {};
+    var hasCreatedWallet = false;
+
+    // JavaScript-Code zur Generierung einer zufälligen Wallet-Adresse
+    function generateRandomAddress() {
+      var address = '0x';
+      var characters = '0123456789ABCDEFabcdef';
+
+      for (var i = 0; i < 32; i++) {
+        address += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+
+      return address;
+    }
+
+    // JavaScript-Code zur Generierung einer zufälligen geheimen Phrase
+    function generateSecretPhrase() {
+      var words = [
+        "Apfel", "Banane", "Kirsche", "Dattel", "Erdbeere", "Feige",
+        "Grapefruit", "Himbeere", "Johannisbeere", "Kiwi", "Limette", "Mango",
+        "Nektarine", "Orange", "Pfirsich", "Quitten", "Rosinen", "Stachelbeere",
+        "Trauben", "Zitrone", "Ananas", "Birne", "Zwetschge", "Melone"
+      ];
+
+      var secretPhrase = "";
+      for (var i = 0; i < 12; i++) {
+        var randomIndex = Math.floor(Math.random() * words.length);
+        secretPhrase += words[randomIndex] + " ";
+        words.splice(randomIndex, 1);
+      }
+
+      return secretPhrase.trim();
+    }
+
+    // JavaScript-Code zum Generieren einer Wallet
+    function generateWallet() {
+      // Überprüfe, ob bereits eine Wallet erstellt wurde
+      if (hasCreatedWallet) {
+        alert('Es wurde bereits eine Wallet erstellt!');
+        return;
+      }
+
+      // Generiere eine zufällige Wallet-Adresse
+      var address = generateRandomAddress();
+
+      // Generiere eine geheime Phrase mit 12 zufälligen Wörtern
+      var secretPhrase = generateSecretPhrase();
+
+      // Initialisiere den Kontostand mit 100 Coins
+      wallets[address] = 100;
+
+      // Speichere die Wallet-Adresse in der Session Storage
+      sessionStorage.setItem('walletAddress', address);
+      sessionStorage.setItem('secretPhrase', secretPhrase);
+
+      // Weiterleitung zur Bestätigungsseite
+      window.location.href = "wallet-confirmation.html";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="wallet">
+      <div class="wallet-address">Wallet-Adresse:</div>
+      <div id="addressInput"></div>
+      <div class="secret-phrase">Geheime Phrase: <span id="secretPhrase">***************</span></div>
+    </div>
+    <button class="button" onclick="generateWallet()">Generate Wallet</button>
+  </div>
+</body>
+</html>

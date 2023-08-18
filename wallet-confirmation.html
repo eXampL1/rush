@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MetaMask-like Interface - Wallet Confirmation</title>
+  <style>
+    /* CSS-Styling für das MetaMask-Interface */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .confirmation-message {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .wallet-address {
+      font-size: 16px;
+      color: #333333;
+      margin-bottom: 5px;
+    }
+
+    .secret-phrase {
+      font-size: 14px;
+      color: #666666;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 50px;
+      margin: 0 auto;
+      margin-top: 20px;
+      background-color: #8e44ad;
+      color: #ffffff;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background-color: #7d3c98;
+    }
+  </style>
+  <script>
+    // JavaScript-Code zum Abrufen der Wallet-Adresse und der geheimen Phrase aus dem Session Storage
+    var walletAddress = sessionStorage.getItem('walletAddress');
+    var secretPhrase = sessionStorage.getItem('secretPhrase');
+
+    // JavaScript-Code zum Anzeigen der Wallet-Adresse und der geheimen Phrase
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('addressInput').innerText = walletAddress;
+      document.getElementById('secretPhrase').innerText = 'Geheime Phrase: ' + secretPhrase;
+    });
+
+    // JavaScript-Code zum Weiterleiten zur nächsten Seite
+    function redirectToWalletSend() {
+      window.location.href = "wallet-send.html";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="confirmation-message">
+      <div class="wallet-address">Wallet-Adresse:</div>
+      <div id="addressInput"></div>
+      <div class="secret-phrase" id="secretPhrase">Geheime Phrase: ***************</div>
+    </div>
+    <button class="button" onclick="redirectToWalletSend()">Continue to Send Coins</button>
+  </div>
+</body>
+</html>

